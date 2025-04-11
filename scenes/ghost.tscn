@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=4 uid="uid://dil68kwn24rl8"]
+
+[ext_resource type="Shader" uid="uid://nua71m4gxdej" path="res://shaders/recolor.gdshader" id="1_v5pp4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6attn"]
+resource_local_to_scene = true
+shader = ExtResource("1_v5pp4")
+shader_parameter/target_color = Color(0, 1, 0, 1)
+shader_parameter/new_color = Color(1, 0, 1, 1)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_v5pp4"]
+_data = PackedByteArray("AAADAAUAAAABAAAAUAAAAEAAAADgAAAAUklGRtgAAABXRUJQVlA4TMwAAAAvT8APEB8gEEjyZ9h1DYFAEuz+Cs///AdMV8BtbbttAzr0ivs49jmn6TiaRvAC/sIHHNBH9F+B2zZKjhnyC9m1YvdP9vtk9+/2+9bu338t5Eu+dFeW6zEf+dLP+ZjNPkTYrZct+nEBtVO7mqQx+pvVJKmdxlG8fZK/aN5d+7kPftd9iMB94QBcgfvCATJuirDeiJf8ZLkPPS2eNxiDNHjbq3mjZiWQBm844D1GfNFAvHG0K85ehc/R/83RXnz4Gr5l/42yZSDjpoAyigA=")
+size_override = Vector2(80, 64)
+
+[sub_resource type="Animation" id="Animation_6attn"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_obmiq"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_xtt71"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_v5pp4"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjq22"]
+_data = {
+&"Down": SubResource("Animation_6attn"),
+&"Left": SubResource("Animation_obmiq"),
+&"Right": SubResource("Animation_xtt71"),
+&"Up": SubResource("Animation_v5pp4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tr3y"]
+size = Vector2(16, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_6attn")
+texture = SubResource("PortableCompressedTexture2D_v5pp4")
+hframes = 5
+vframes = 4
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "C:/Users/devli/Projects/assets/Art/Ghost.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "ffc19e92f04fe31b7b343961b9d9fba4"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kjq22")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_0tr3y")
