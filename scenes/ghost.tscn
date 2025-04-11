@@ -89,20 +89,13 @@ size = Vector2(16, 16)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_6attn")
 texture = SubResource("PortableCompressedTexture2D_v5pp4")
 hframes = 5
 vframes = 4
-frame = 1
+frame = 4
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "layer_section": true,
