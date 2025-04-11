@@ -9,22 +9,6 @@ radius = 8.0
 _data = PackedByteArray("AAADAAUAAAABAAAAMAAAACAAAADCAAAAUklGRroAAABXRUJQVlA4TK0AAAAvL8AHEBcw8rM/NvMfcAhHtW27yaPDnxMRUREJtNGX8FVEAk1ATeAfm69gIaL/ity2bZhTd51n7GpZiIjoA3dYqjs0A6RBJA+QK6QqUiqUCos67Q3IE6Y9trZCelh58k/784OA2eLKXAQ+V/JMdjDZ77C8Q6Pz2qP/875fZ2jUAPkBWVUoDyjezgHoBjDaH3IKdYOVHrFgwLQPttRpby4yRIKMg4jN7uoMjed6JQA=")
 size_override = Vector2(48, 32)
 
-[sub_resource type="Animation" id="Animation_g2els"]
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 2]
-}
-
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.2
 loop_mode = 1
@@ -73,6 +57,22 @@ tracks/0/keys = {
 "values": [0, 2]
 }
 
+[sub_resource type="Animation" id="Animation_g2els"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g2els"]
 _data = {
 &"Down": SubResource("Animation_qhqgy"),
@@ -85,6 +85,7 @@ _data = {
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_u8vuu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
