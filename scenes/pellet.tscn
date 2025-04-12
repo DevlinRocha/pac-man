@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0fs0hudij67c" path="res://assets/Pellet.svg" id="1_euuo5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bonx2"]
-size = Vector2(8, 8)
+size = Vector2(6, 6)
 
 [node name="Pellet" type="Area2D"]
 script = ExtResource("1_bonx2")
@@ -13,5 +13,4 @@ script = ExtResource("1_bonx2")
 texture = ExtResource("1_euuo5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_bonx2")
