@@ -118,30 +118,6 @@ libraries = {
 }
 autoplay = "Right"
 
-[node name="RayCastUp" type="RayCast2D" parent="."]
-visible = false
-scale = Vector2(2, 1)
-enabled = false
-target_position = Vector2(0, -14)
-
-[node name="RayCastDown" type="RayCast2D" parent="."]
-visible = false
-scale = Vector2(2, 1)
-enabled = false
-target_position = Vector2(0, 14)
-
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-visible = false
-scale = Vector2(1, 2)
-enabled = false
-target_position = Vector2(-14, 0)
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-visible = false
-scale = Vector2(1, 2)
-enabled = false
-target_position = Vector2(14, 0)
-
 [node name="RayCastGroupUp" type="Node2D" parent="."]
 
 [node name="RayCastTopUp" type="RayCast2D" parent="RayCastGroupUp"]
