@@ -11,7 +11,20 @@ var direction := Vector2(SPEED, 0)
 @onready var ray_cast_group_right: Node2D = $RayCastGroupRight
 
 
-func can_move(ray_group: Node2D) -> bool:
+enum Direction {UP, DOWN, LEFT, RIGHT}
+
+func can_move(direction: Direction) -> bool:
+	var ray_group: Node2D
+	match direction:
+		Direction.UP:
+			ray_group = ray_cast_group_up
+		Direction.DOWN:
+			ray_group = ray_cast_group_down
+		Direction.LEFT:
+			ray_group = ray_cast_group_left
+		Direction.RIGHT:
+			ray_group = ray_cast_group_right
+
 	for ray in ray_group.get_children():
 		if ray is RayCast2D and ray.is_colliding():
 			return false
@@ -19,19 +32,19 @@ func can_move(ray_group: Node2D) -> bool:
 
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_pressed("up") and can_move(ray_cast_group_up):
+	if Input.is_action_pressed("up") and can_move(Direction.UP):
 		direction = Vector2(0, -SPEED)
 		animation_player.assigned_animation = "Up"
 
-	if Input.is_action_pressed("down") and can_move(ray_cast_group_down):
+	if Input.is_action_pressed("down") and can_move(Direction.DOWN):
 		direction = Vector2(0, SPEED)
 		animation_player.assigned_animation = "Down"
 
-	if Input.is_action_pressed("left") and can_move(ray_cast_group_left):
+	if Input.is_action_pressed("left") and can_move(Direction.LEFT):
 		direction = Vector2(-SPEED, 0)
 		animation_player.assigned_animation = "Left"
 
-	if Input.is_action_pressed("right") and can_move(ray_cast_group_right):
+	if Input.is_action_pressed("right") and can_move(Direction.RIGHT):
 		direction = Vector2(SPEED, 0)
 		animation_player.assigned_animation = "Right"
 
