@@ -119,13 +119,77 @@ libraries = {
 autoplay = "Right"
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
+visible = false
+scale = Vector2(2, 1)
+enabled = false
 target_position = Vector2(0, -14)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
+visible = false
+scale = Vector2(2, 1)
+enabled = false
 target_position = Vector2(0, 14)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
+visible = false
+scale = Vector2(1, 2)
+enabled = false
 target_position = Vector2(-14, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
+visible = false
+scale = Vector2(1, 2)
+enabled = false
+target_position = Vector2(14, 0)
+
+[node name="RayCastGroupUp" type="Node2D" parent="."]
+
+[node name="RayCastTopUp" type="RayCast2D" parent="RayCastGroupUp"]
+position = Vector2(-4, 0)
+target_position = Vector2(0, -14)
+
+[node name="RayCastCenterUp" type="RayCast2D" parent="RayCastGroupUp"]
+target_position = Vector2(0, -14)
+
+[node name="RayCastBottomUp" type="RayCast2D" parent="RayCastGroupUp"]
+position = Vector2(4, 0)
+target_position = Vector2(0, -14)
+
+[node name="RayCastGroupDown" type="Node2D" parent="."]
+
+[node name="RayCastTopDown" type="RayCast2D" parent="RayCastGroupDown"]
+position = Vector2(-4, 0)
+target_position = Vector2(0, 14)
+
+[node name="RayCastCenterDown" type="RayCast2D" parent="RayCastGroupDown"]
+target_position = Vector2(0, 14)
+
+[node name="RayCastBottomDown" type="RayCast2D" parent="RayCastGroupDown"]
+position = Vector2(4, 0)
+target_position = Vector2(0, 14)
+
+[node name="RayCastGroupLeft" type="Node2D" parent="."]
+
+[node name="RayCastTopLeft" type="RayCast2D" parent="RayCastGroupLeft"]
+position = Vector2(0, -4)
+target_position = Vector2(-14, 0)
+
+[node name="RayCastCenterLeft" type="RayCast2D" parent="RayCastGroupLeft"]
+target_position = Vector2(-14, 0)
+
+[node name="RayCastBottomLeft" type="RayCast2D" parent="RayCastGroupLeft"]
+position = Vector2(0, 4)
+target_position = Vector2(-14, 0)
+
+[node name="RayCastGroupRight" type="Node2D" parent="."]
+
+[node name="RayCastTopRight" type="RayCast2D" parent="RayCastGroupRight"]
+position = Vector2(0, -4)
+target_position = Vector2(14, 0)
+
+[node name="RayCastCenterRight" type="RayCast2D" parent="RayCastGroupRight"]
+target_position = Vector2(14, 0)
+
+[node name="RayCastBottomRight" type="RayCast2D" parent="RayCastGroupRight"]
+position = Vector2(0, 4)
 target_position = Vector2(14, 0)
