@@ -117,3 +117,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_g2els")
 }
 autoplay = "Right"
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -14)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 14)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-14, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(14, 0)
