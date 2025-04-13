@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://dil68kwn24rl8"]
+[gd_scene load_steps=11 format=4 uid="uid://dil68kwn24rl8"]
 
+[ext_resource type="Script" uid="uid://xi6hj3dqnjfk" path="res://scripts/ghost.gd" id="1_l5lq6"]
 [ext_resource type="Shader" uid="uid://nua71m4gxdej" path="res://shaders/recolor.gdshader" id="1_v5pp4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6attn"]
@@ -88,6 +89,7 @@ _data = {
 size = Vector2(16, 16)
 
 [node name="Ghost" type="CharacterBody2D"]
+script = ExtResource("1_l5lq6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
