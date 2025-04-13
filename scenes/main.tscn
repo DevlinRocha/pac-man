@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://5v4tyw5wxmm0"]
+[gd_scene load_steps=19 format=4 uid="uid://5v4tyw5wxmm0"]
 
 [ext_resource type="PackedScene" uid="uid://ylgraq5w5ygl" path="res://scenes/player.tscn" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://dgoww8oqqp1q7" path="res://scripts/play_area.gd" id="1_tbgi4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5jh2tar0g7f" path="res://scenes/power_pellet.tscn" id="5_o6xl0"]
 [ext_resource type="Script" uid="uid://xj3xb7cpjsaq" path="res://scripts/maze.gd" id="7_85g3d"]
 [ext_resource type="Script" uid="uid://0yxscxq5qejj" path="res://scripts/ui.gd" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://dil68kwn24rl8" path="res://scenes/ghost.tscn" id="11_ya4ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
 size = Vector2(446, 496)
@@ -122,3 +123,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_tbgi4")
 text = "0"
+
+[node name="Blinky" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(576, 184)
+
+[node name="Pinky" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(576, 232)
+ghost_identity = 1
+
+[node name="Inky" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(608, 232)
+ghost_identity = 2
+
+[node name="Clyde" parent="." instance=ExtResource("11_ya4ey")]
+position = Vector2(544, 232)
+ghost_identity = 3
