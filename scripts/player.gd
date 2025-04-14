@@ -13,24 +13,6 @@ var current_direction := Vector2.RIGHT
 @onready var ray_cast_group_right: Node2D = $RayCastGroupRight
 
 
-func can_move(new_direction: Direction) -> bool:
-	var ray_group: Node2D
-	match new_direction:
-		Direction.UP:
-			ray_group = ray_cast_group_up
-		Direction.DOWN:
-			ray_group = ray_cast_group_down
-		Direction.LEFT:
-			ray_group = ray_cast_group_left
-		Direction.RIGHT:
-			ray_group = ray_cast_group_right
-
-	for ray in ray_group.get_children():
-		if ray is RayCast2D and ray.is_colliding():
-			return false
-	return true
-
-
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("up") and can_move(Direction.UP):
 		current_direction = Vector2.UP
@@ -51,3 +33,21 @@ func _physics_process(_delta: float) -> void:
 	position += current_direction * SPEED
 
 	move_and_slide()
+
+
+func can_move(new_direction: Direction) -> bool:
+	var ray_group: Node2D
+	match new_direction:
+		Direction.UP:
+			ray_group = ray_cast_group_up
+		Direction.DOWN:
+			ray_group = ray_cast_group_down
+		Direction.LEFT:
+			ray_group = ray_cast_group_left
+		Direction.RIGHT:
+			ray_group = ray_cast_group_right
+
+	for ray in ray_group.get_children():
+		if ray is RayCast2D and ray.is_colliding():
+			return false
+	return true
