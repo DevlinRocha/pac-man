@@ -14,37 +14,41 @@ var current_direction := Vector2.RIGHT
 
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_pressed("up") and can_move(Direction.UP):
+	if Input.is_action_pressed("up") and can_move(Vector2.UP):
 		current_direction = Vector2.UP
 		animation_player.assigned_animation = "Up"
 
-	if Input.is_action_pressed("down") and can_move(Direction.DOWN):
+	if Input.is_action_pressed("down") and can_move(Vector2.DOWN):
 		current_direction = Vector2.DOWN
 		animation_player.assigned_animation = "Down"
 
-	if Input.is_action_pressed("left") and can_move(Direction.LEFT):
+	if Input.is_action_pressed("left") and can_move(Vector2.LEFT):
 		current_direction = Vector2.LEFT
 		animation_player.assigned_animation = "Left"
 
-	if Input.is_action_pressed("right") and can_move(Direction.RIGHT):
+	if Input.is_action_pressed("right") and can_move(Vector2.RIGHT):
 		current_direction = Vector2.RIGHT
 		animation_player.assigned_animation = "Right"
 
 	position += current_direction * SPEED
+	if can_move(current_direction):
+		animation_player.play()
+	else:
+		animation_player.stop()
 
 	move_and_slide()
 
 
-func can_move(new_direction: Direction) -> bool:
+func can_move(new_direction: Vector2) -> bool:
 	var ray_group: Node2D
 	match new_direction:
-		Direction.UP:
+		Vector2.UP:
 			ray_group = ray_cast_group_up
-		Direction.DOWN:
+		Vector2.DOWN:
 			ray_group = ray_cast_group_down
-		Direction.LEFT:
+		Vector2.LEFT:
 			ray_group = ray_cast_group_left
-		Direction.RIGHT:
+		Vector2.RIGHT:
 			ray_group = ray_cast_group_right
 
 	for ray in ray_group.get_children():
