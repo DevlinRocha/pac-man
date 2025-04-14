@@ -4,7 +4,7 @@ enum Direction {UP, DOWN, LEFT, RIGHT}
 
 const SPEED = 2
 
-var current_direction := Vector2.RIGHT * SPEED
+var current_direction := Vector2.RIGHT
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var ray_cast_group_up: Node2D = $RayCastGroupUp
@@ -33,21 +33,21 @@ func can_move(new_direction: Direction) -> bool:
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("up") and can_move(Direction.UP):
-		current_direction = Vector2.UP * SPEED
+		current_direction = Vector2.UP
 		animation_player.assigned_animation = "Up"
 
 	if Input.is_action_pressed("down") and can_move(Direction.DOWN):
-		current_direction = Vector2.DOWN * SPEED
+		current_direction = Vector2.DOWN
 		animation_player.assigned_animation = "Down"
 
 	if Input.is_action_pressed("left") and can_move(Direction.LEFT):
-		current_direction = Vector2.LEFT * SPEED
+		current_direction = Vector2.LEFT
 		animation_player.assigned_animation = "Left"
 
 	if Input.is_action_pressed("right") and can_move(Direction.RIGHT):
-		current_direction = Vector2.RIGHT * SPEED
+		current_direction = Vector2.RIGHT
 		animation_player.assigned_animation = "Right"
 
-	position += current_direction
+	position += current_direction * SPEED
 
 	move_and_slide()
