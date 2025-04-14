@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://chgi1bcbb38fe"
+path="res://.godot/imported/strawberry.aseprite-852eb150e57b31ce2c0464b2e5b422ec.res"
+
+[deps]
+
+source_file="res://assets/strawberry.aseprite"
+dest_files=["res://.godot/imported/strawberry.aseprite-852eb150e57b31ce2c0464b2e5b422ec.res"]
+
+[params]
+
