@@ -7,5 +7,5 @@ func _ready() -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.position.x > 800:
 		body.position.x = 340.0
-	elif body.position.x > 341:
+	elif body.position.x > 340:
 		body.position.x = 800.0
