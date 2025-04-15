@@ -110,10 +110,8 @@ func _choose_next_direction() -> void:
 					best_direction = dir
 
 			next_direction = best_direction
-			#print({best_direction = best_direction})
 	else:
 		# At a dead end, only option is to reverse
-		print("DEAD END")
 		next_direction = -current_direction
 
 
