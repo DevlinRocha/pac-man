@@ -1,6 +1,6 @@
 extends Node
 
-@onready var maze: TileMapLayer = $Maze
+@onready var maze: TileMapLayer = %Maze
 @onready var ui: Control = $UI
 
 
