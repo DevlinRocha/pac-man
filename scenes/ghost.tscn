@@ -128,3 +128,9 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_0tr3y")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+path_max_distance = 10.0
+path_postprocessing = 1
+debug_enabled = true
