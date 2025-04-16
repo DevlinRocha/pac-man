@@ -14,6 +14,7 @@ var current_state := State.CHASE
 @onready var player: CharacterBody2D = %Player
 @onready var maze: TileMapLayer = %Maze
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var blinky: CharacterBody2D = $"."
 
 
 @export var normal_speed: float = 1.6
@@ -45,6 +46,13 @@ func _update_target_tile() -> void:
 				GhostType.PINKY:
 					# Pinky targets 4 tiles ahead of Pac-Man's current tile
 					navigation_agent_2d.target_position = player.global_position + (player.current_direction * 4)
+				GhostType.INKY:
+					# Inky
+					var tile_ahead = player.global_position + (player.current_direction * 2)
+					var distance = tile_ahead - blinky.position
+					var new_target = blinky.position + (distance * 2)
+					navigation_agent_2d.target_position.x = clamp(new_target.x, 368, 784)
+					navigation_agent_2d.target_position.y = clamp(new_target.y, 16, 480)
 		State.SCATTER:
 			#target_tile = BLINKY_SCATTER_TARGET
 			pass
