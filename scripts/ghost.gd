@@ -38,8 +38,13 @@ func _physics_process(_delta: float) -> void:
 func _update_target_tile() -> void:
 	match current_state:
 		State.CHASE:
-			# Blinky targets Pac-Man's current tile directly
-			navigation_agent_2d.target_position = player.global_position
+			match ghost_identity:
+				GhostType.BLINKY:
+					# Blinky targets Pac-Man's current tile directly
+					navigation_agent_2d.target_position = player.global_position
+				GhostType.PINKY:
+					# Pinky targets 4 tiles ahead of Pac-Man's current tile
+					navigation_agent_2d.target_position = player.global_position + (player.current_direction * 4)
 		State.SCATTER:
 			#target_tile = BLINKY_SCATTER_TARGET
 			pass
