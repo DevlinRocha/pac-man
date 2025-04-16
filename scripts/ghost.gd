@@ -53,6 +53,9 @@ func _update_target_tile() -> void:
 					var new_target = blinky.position + (distance * 2)
 					navigation_agent_2d.target_position.x = clamp(new_target.x, 368, 784)
 					navigation_agent_2d.target_position.y = clamp(new_target.y, 16, 480)
+				GhostType.CLYDE:
+					# Clyde
+					pass
 		State.SCATTER:
 			#target_tile = BLINKY_SCATTER_TARGET
 			pass
@@ -80,3 +83,4 @@ func change_color() -> void:
 			ghost_color = Color.ORANGE
 
 	material.set_shader_parameter("new_color", ghost_color)
+	navigation_agent_2d.debug_path_custom_color = ghost_color

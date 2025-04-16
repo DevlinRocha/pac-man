@@ -134,3 +134,4 @@ path_desired_distance = 2.0
 path_max_distance = 10.0
 path_postprocessing = 1
 debug_enabled = true
+debug_use_custom = true
