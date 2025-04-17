@@ -49,8 +49,8 @@ func _update_target_tile() -> void:
 				GhostType.INKY:
 					# Inky
 					var tile_ahead = player.global_position + (player.current_direction * 2)
-					var distance = tile_ahead - blinky.position
-					var new_target = blinky.position + (distance * 2)
+					var distance = tile_ahead - blinky.global_position
+					var new_target = blinky.global_position + (distance * 2)
 					navigation_agent_2d.target_position.x = clamp(new_target.x, 368, 784)
 					navigation_agent_2d.target_position.y = clamp(new_target.y, 16, 480)
 				GhostType.CLYDE:
