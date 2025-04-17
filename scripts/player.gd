@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 enum Direction {UP, DOWN, LEFT, RIGHT}
 
-const SPEED = 2
+const SPEED = 80
 
 var current_direction := Vector2.RIGHT
 
@@ -30,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 		current_direction = Vector2.RIGHT
 		animation_player.assigned_animation = "Right"
 
-	position += current_direction * SPEED
+	position += current_direction * SPEED * _delta
 	if can_move(current_direction):
 		animation_player.play()
 	else:

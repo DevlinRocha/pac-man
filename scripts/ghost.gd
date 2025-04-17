@@ -17,7 +17,7 @@ var current_state := State.CHASE
 @onready var blinky: CharacterBody2D = $"."
 
 
-@export var normal_speed: float = 1.6
+@export var normal_speed: float = 80
 @export var frightened_speed: float = 50.0
 @export var eaten_speed: float = 150.0
 
@@ -33,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 
 	var direction = navigation_agent_2d.get_next_path_position() - global_position
 	direction = snapped(Vector2(direction.normalized()), Vector2(1, 1))
-	position += direction * normal_speed
+	position += direction * normal_speed * _delta
 
 
 func _update_target_tile() -> void:
