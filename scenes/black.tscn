@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://brk5kt31hntjr"]
 
-[node name="Black" type="Node2D"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Black" type="ColorRect"]
 custom_minimum_size = Vector2(16, 16)
 anchors_preset = 15
 anchor_right = 1.0
